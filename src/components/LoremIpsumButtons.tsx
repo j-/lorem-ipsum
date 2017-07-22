@@ -36,13 +36,19 @@ export default class LoremIpsumButtons extends React.Component<Props, State> {
 
 	private renderButtons () {
 		const buttons = [];
+		const { highlighted } = this.state;
 		for (let i = 0; i < this.props.max; i++) {
+			const className = classNames('LoremIpsumButtons-button pt-button', {
+				'pt-intent-primary': highlighted > i,
+			});
 			buttons.push(
 				<div className="LoremIpsumButtons-item" key={i}>
 					<button
 						type="button"
-						className="LoremIpsumButtons-button pt-button"
-						onClick={() => this.handleButtonClick(i + 1)}
+						className={className}
+						onClick={() => this.handleButtonClick(i)}
+						onMouseOver={() => this.handleMouseOver(i)}
+						onMouseOut={() => this.handleMouseOut()}
 					/>
 				</div>
 			);
@@ -50,12 +56,25 @@ export default class LoremIpsumButtons extends React.Component<Props, State> {
 		return buttons;
 	}
 
-	private handleButtonClick (count: number) {
+	private handleButtonClick (i: number) {
 		const { units } = this.props;
+		const count = i + 1;
 		const text = loremIpsum({
 			count,
 			units,
 		});
 		copy(text);
+	}
+
+	private handleMouseOver (i: number) {
+		this.setState(() => ({
+			highlighted: i + 1,
+		}));
+	}
+
+	private handleMouseOut () {
+		this.setState(() => ({
+			highlighted: 0,
+		}));
 	}
 }
