@@ -119,6 +119,7 @@ export default class LoremIpsumGenerator extends React.Component<{}, State> {
 								<input
 									id="config-html"
 									type="checkbox"
+									disabled={this.state.units !== 'paragraphs'}
 									checked={this.state.format === 'html'}
 									onChange={(e) => this.setValue('format', e.currentTarget.checked ? 'html' : 'plain')}
 								/>
