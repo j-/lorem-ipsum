@@ -27,5 +27,24 @@
     "eject": "react-scripts-ts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  }
+  },
+  "description": "Generate words, sentences or paragraphs of lorem ipsum",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/lorem-ipsum.git"
+  },
+  "keywords": [
+    "lorem",
+    "ipsum",
+    "dolor",
+    "sit",
+    "amet"
+  ],
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/lorem-ipsum/issues"
+  },
+  "homepage": "https://skeoh.com/lorem-ipsum/"
 }
