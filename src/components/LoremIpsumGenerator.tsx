@@ -132,7 +132,7 @@ export default class LoremIpsumGenerator extends React.Component<{}, State> {
 
 				<button
 					type="submit"
-					className="pt-button pt-fill pt-intent-primary"
+					className="pt-button pt-fill pt-intent-primary pt-icon-clipboard"
 				>
 					Copy to clipboard
 				</button>
