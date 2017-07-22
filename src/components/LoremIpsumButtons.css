@@ -1,0 +1,30 @@
+.LoremIpsumButtons {
+	display: flex;
+	margin: 0.5em 0;
+}
+
+.LoremIpsumButtons-item {
+	flex: 1;
+	margin: 0.25em;
+}
+
+.LoremIpsumButtons-button {
+	width: 100%;
+	height: 100%;
+}
+
+.LoremIpsumButtons--words {
+	flex-direction: row;
+}
+
+.LoremIpsumButtons--sentences {
+	flex-direction: column;
+}
+
+.LoremIpsumButtons--paragraphs {
+	flex-direction: column;
+}
+
+.LoremIpsumButtons--paragraphs > .LoremIpsumButtons-item {
+	height: 5em;
+}

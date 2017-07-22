@@ -11,6 +11,11 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "@blueprintjs/core": "^1.23.1",
+    "@types/classnames": "^2.2.0",
+    "classnames": "^2.2.5",
+    "clipboard-copy": "^1.2.0",
+    "lorem-ipsum": "^1.0.4",
     "react-scripts-ts": "2.4.0"
   },
   "scripts": {
