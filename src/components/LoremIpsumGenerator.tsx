@@ -124,7 +124,7 @@ export default class LoremIpsumGenerator extends React.Component<{}, State> {
 									onChange={(e) => this.setValue('format', e.currentTarget.checked ? 'html' : 'plain')}
 								/>
 								<span className="pt-control-indicator" />
-								Format as HTML
+								Format as HTML <span className="pt-text-muted">(Paragraphs only)</span>
 							</label>
 						</div>
 					</div>
