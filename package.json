@@ -17,6 +17,7 @@
     "clipboard-copy": "^1.2.0",
     "gh-pages": "^1.0.0",
     "lorem-ipsum": "^1.0.4",
+    "react-addons-css-transition-group": "^15.6.0",
     "react-scripts-ts": "2.4.0"
   },
   "scripts": {

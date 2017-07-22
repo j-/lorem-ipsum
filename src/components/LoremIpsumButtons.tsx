@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
+import toaster from '../toaster';
 import './LoremIpsumButtons.css';
 
 const copy = require('clipboard-copy');
@@ -74,6 +75,9 @@ export default class LoremIpsumButtons extends React.Component<Props, State> {
 			units,
 		});
 		copy(text);
+		toaster.show({
+			message: 'Copied to clipboard',
+		});
 	}
 
 	private setHighlighted (i: number) {
