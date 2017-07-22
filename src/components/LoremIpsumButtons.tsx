@@ -11,12 +11,12 @@ export interface Props {
 }
 
 interface State {
-	highlighted: number;
+	highlighted: number | null;
 }
 
 export default class LoremIpsumButtons extends React.Component<Props, State> {
 	state: State = {
-		highlighted: 0,
+		highlighted: null,
 	};
 
 	render () {
@@ -37,18 +37,28 @@ export default class LoremIpsumButtons extends React.Component<Props, State> {
 	private renderButtons () {
 		const buttons = [];
 		const { highlighted } = this.state;
+		const { units } = this.props;
 		for (let i = 0; i < this.props.max; i++) {
 			const className = classNames('LoremIpsumButtons-button pt-button', {
-				'pt-intent-primary': highlighted > i,
+				'pt-intent-primary': highlighted !== null && highlighted >= i,
+				'pt-icon-clipboard': highlighted === i,
 			});
+			const count = i + 1;
+			const unit = count === 1 ?
+				units.substring(0, units.length - 1) :
+				units;
+			const text = highlighted === i ? `Copy ${count} ${unit}` : '';
 			buttons.push(
 				<div className="LoremIpsumButtons-item" key={i}>
 					<button
 						type="button"
 						className={className}
 						onClick={() => this.handleButtonClick(i)}
-						onMouseOver={() => this.handleMouseOver(i)}
-						onMouseOut={() => this.handleMouseOut()}
+						onMouseOver={() => this.setHighlighted(i)}
+						onMouseOut={() => this.clearHighlighted()}
+						onFocus={() => this.setHighlighted(i)}
+						onBlur={() => this.clearHighlighted()}
+						children={text}
 					/>
 				</div>
 			);
@@ -66,15 +76,15 @@ export default class LoremIpsumButtons extends React.Component<Props, State> {
 		copy(text);
 	}
 
-	private handleMouseOver (i: number) {
+	private setHighlighted (i: number) {
 		this.setState(() => ({
-			highlighted: i + 1,
+			highlighted: i,
 		}));
 	}
 
-	private handleMouseOut () {
+	private clearHighlighted () {
 		this.setState(() => ({
-			highlighted: 0,
+			highlighted: null,
 		}));
 	}
 }
